@@ -115,7 +115,8 @@ class _GameState extends State<Game> {
       // ignore: prefer_const_constructors
       Row row = Row(
           // ignore: prefer_const_literals_to_create_immutables
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, children: []);
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: []);
       for (int j = 0; j < 4; j++) {
         Card card = Card(
             // i * 4 + j uses i and j to go from 0 to 19 index
@@ -124,11 +125,11 @@ class _GameState extends State<Game> {
             frontImage: cardImages[i * 4 + j],
             onFlip: () {
               if (canTap) {
-                addCounter();
                 // flips the card *** add animation
                 cardKeys[i * 4 + j].currentState?.setFlipState(true);
                 // checks if there is another card flipped
                 if (currentCard != null) {
+                  addCounter();
                   canTap = false;
                   // checks if its a match
                   Future.delayed(const Duration(milliseconds: 700), () {
